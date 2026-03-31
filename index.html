@@ -2,151 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Mock Exam: Professional Practice | Interactive Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>Mock Exam: Professional Practices | Mobile-Friendly Interactive Test</title>
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
+
     body {
       background: #f0f4f8;
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      margin: 0;
-      padding: 24px 20px;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      padding: 16px;
       color: #1a2c3e;
     }
+
     .exam-container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
       background: white;
       border-radius: 32px;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
       overflow: hidden;
-      padding: 28px 30px 40px;
+      padding: 20px 20px 36px;
     }
+
     h1 {
-      font-size: 2rem;
+      font-size: 1.85rem;
       margin-top: 0;
-      margin-bottom: 0.25rem;
+      margin-bottom: 6px;
       color: #0a2b3e;
+      word-break: break-word;
     }
+
     .badge {
       background: #eef2ff;
-      padding: 8px 16px;
+      padding: 6px 14px;
       border-radius: 40px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: #1e4a76;
       display: inline-block;
       margin: 8px 0 16px;
     }
+
     .info-panel {
       background: #e9f0f9;
-      padding: 16px 20px;
+      padding: 14px 18px;
       border-radius: 24px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 12px;
-      margin: 20px 0 24px;
+      margin: 16px 0 24px;
       font-weight: 500;
+      font-size: 0.9rem;
     }
-    .mark-summary {
-      background: #ffffffd9;
-      border-radius: 28px;
-      padding: 12px 20px;
-      font-weight: 600;
-      border: 1px solid #cbdde9;
-    }
+
     .section-title {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       margin: 28px 0 16px 0;
       border-left: 6px solid #2c7da0;
-      padding-left: 18px;
+      padding-left: 16px;
       color: #0f4c5f;
     }
+
     .part-card {
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
+
     .question-block {
       background: #fefefe;
       border: 1px solid #e2edf2;
       border-radius: 24px;
-      margin-bottom: 28px;
-      padding: 18px 22px;
+      margin-bottom: 24px;
+      padding: 18px 20px;
       transition: 0.1s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
     }
+
     .question-text {
       font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 1rem;
+      line-height: 1.4;
       margin-bottom: 14px;
       color: #1e4663;
+      word-break: break-word;
     }
+
     .subq {
-      margin-left: 12px;
+      margin-left: 8px;
       margin-top: 14px;
       margin-bottom: 12px;
       border-left: 2px solid #bdd3e6;
-      padding-left: 18px;
+      padding-left: 16px;
     }
+
     .marks {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       color: #3b6e8b;
       font-weight: 500;
       background: #eef3fa;
       display: inline-block;
       padding: 2px 10px;
       border-radius: 20px;
+      margin-left: 8px;
+      vertical-align: middle;
     }
-    textarea, input {
+
+    textarea {
       width: 100%;
-      padding: 12px 16px;
-      border-radius: 20px;
+      padding: 14px 16px;
+      border-radius: 22px;
       border: 1.5px solid #cbdbe0;
       font-family: inherit;
       font-size: 0.9rem;
       background: #fff;
       transition: 0.2s;
-      margin-top: 8px;
+      margin-top: 12px;
+      resize: vertical;
     }
-    textarea:focus, input:focus {
+
+    textarea:focus {
       border-color: #2c7da0;
       outline: none;
-      box-shadow: 0 0 0 3px rgba(44,125,160,0.2);
+      box-shadow: 0 0 0 3px rgba(44, 125, 160, 0.2);
     }
+
+    /* MCQ VERTICAL STYLES - each option below the other */
     .mcq-group {
       display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
+      flex-direction: column;
+      gap: 12px;
       margin: 12px 0 8px;
-      align-items: center;
+      align-items: flex-start;
     }
+
     .mcq-option {
       display: flex;
-      align-items: center;
-      gap: 6px;
+      align-items: flex-start;
+      gap: 12px;
       background: #f9fbfd;
-      padding: 6px 14px;
-      border-radius: 40px;
-      border: 1px solid #dce5ec;
+      padding: 10px 16px;
+      border-radius: 48px;
+      border: 1px solid #e0eaf0;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.15s;
     }
+
+    .mcq-option:hover {
+      background: #eef3fc;
+    }
+
+    .mcq-option input {
+      margin-top: 2px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      accent-color: #2c7da0;
+      cursor: pointer;
+    }
+
+    .mcq-option span {
+      font-size: 0.92rem;
+      line-height: 1.4;
+      color: #1f3b4c;
+      word-break: break-word;
+    }
+
     .answer-feedback {
-      margin-top: 16px;
+      margin-top: 18px;
       background: #f8fafc;
       border-radius: 20px;
       padding: 12px 18px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       border-left: 4px solid #6c9ebf;
     }
+
     .correct-answer {
       color: #1d6f2c;
       font-weight: 500;
     }
+
     .wrong-feedback {
       color: #b13e3e;
     }
+
     .btn-group {
       display: flex;
       flex-wrap: wrap;
@@ -154,50 +198,91 @@
       margin: 32px 0 20px;
       justify-content: center;
     }
+
     button {
       background: #2c7da0;
       border: none;
       color: white;
       font-weight: 600;
-      padding: 12px 30px;
-      border-radius: 40px;
+      padding: 12px 28px;
+      border-radius: 50px;
       font-size: 1rem;
       cursor: pointer;
       transition: 0.2s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      font-family: inherit;
     }
+
     button:hover {
       background: #1f5e7a;
       transform: scale(0.97);
     }
+
     .reset-btn {
       background: #4b6f86;
     }
+
     .reset-btn:hover {
       background: #2e4b62;
     }
+
     .final-score {
       background: #d9eef5;
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       font-weight: 800;
       padding: 18px;
       border-radius: 48px;
       margin-top: 30px;
+      word-break: break-word;
     }
+
     hr {
       margin: 10px 0;
     }
-    .feedback-inline {
-      font-size: 0.85rem;
-    }
-    @media (max-width: 700px) {
+
+    /* Mobile first improvements */
+    @media (max-width: 640px) {
+      body {
+        padding: 10px;
+      }
       .exam-container {
-        padding: 18px;
+        padding: 16px;
       }
       .question-block {
-        padding: 14px;
+        padding: 14px 16px;
+      }
+      .section-title {
+        font-size: 1.35rem;
+        margin-top: 20px;
+      }
+      .mcq-option {
+        padding: 8px 14px;
+      }
+      .mcq-option span {
+        font-size: 0.88rem;
+      }
+      .btn-group button {
+        width: 100%;
+        padding: 12px;
+      }
+      .final-score {
+        font-size: 1.2rem;
+      }
+      .info-panel {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+
+    /* Small devices */
+    @media (max-width: 480px) {
+      .marks {
+        display: inline-block;
+        margin-top: 4px;
+      }
+      .question-text {
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -205,11 +290,11 @@
 <body>
 <div class="exam-container" id="examRoot">
   <h1>📘 Mock Examination</h1>
-  <div class="badge">⏱️ Time: 2 hours | Total: 100 marks</div>
+  <div class="badge">⏱️ 2 hours | Total: 100 marks</div>
   <div class="info-panel">
-    <span>📌 Part A: 3 essay-style questions (75 marks)</span>
+    <span>📌 Part A: 3 essay questions (75 marks)</span>
     <span>📌 Part B: 25 MCQs (1 mark each)</span>
-    <span>🔄 Answer all, then click <strong>“Submit & Check Answers - You can also repeat the exam”</strong></span>
+    <span>🔄 Answer all, then click "Submit & Check" - You can always Repeat the Exam </span>
   </div>
 
   <!-- PART A section -->
@@ -225,7 +310,7 @@
   </div>
 
   <div class="btn-group">
-    <button id="submitBtn">✔️ Submit & Check Answers</button>
+    <button id="submitBtn">✅ Submit & Check Answers</button>
     <button id="resetBtn" class="reset-btn">🔄 Reset Exam (try again)</button>
   </div>
   <div id="scorePanel" class="final-score" style="display: none;"></div>
@@ -233,29 +318,21 @@
 
 <script>
   // --------------------------------------------------------------
-  // MARKING SCHEME + CORRECT ANSWERS (based on provided answer key)
+  // MARKING SCHEME + CORRECT ANSWERS (based on answer key)
   // --------------------------------------------------------------
   
-  // PART A model answers (keywords / flexible evaluation)
-  // Each question part has max marks and a set of expected key concepts.
-  // We'll award partial marks based on presence of key terms.
-  
   const partAMarking = {
-    // Question 1
     q1a: { max: 9, keywords: ["data breach", "unauthorized sharing", "identity theft", "tracking", "profiling", "third party", "exposed", "fraudulent"] },
     q1b: { max: 6, keywords: ["copyright", "patent", "source code", "design", "innovative", "legal protection", "infringement", "commercial use"] },
     q1c: { max: 10, keywords: ["resource efficiency", "shared infrastructure", "energy optimisation", "cooling", "scalability", "renewable energy", "reduce e-waste", "carbon", "efficient"] },
-    // Question 2
     q2a: { max: 7, keywords: ["regulation", "surveillance", "platform control", "algorithms", "restricted", "government", "controlled"] },
     q2b: { max: 10, keywords: ["code of ethics", "moral principles", "professional behavior", "privacy", "integrity", "honesty", "responsibility"] },
     q2c: { max: 8, keywords: ["sustainability", "environmental impact", "energy consumption", "e-waste", "carbon emissions", "challenges"] },
-    // Question 3
     q3a: { max: 7, keywords: ["Internet of Things", "network of connected devices", "smart home", "wearable", "fitness tracker", "exchange data"] },
     q3b: { max: 9, keywords: ["data protection", "GDPR", "privacy", "legal penalties", "reputation", "user trust", "compliance", "fines"] },
     q3c: { max: 9, keywords: ["Utilitarianism", "greatest happiness", "maximising overall", "majority", "ethical theory", "benefit users"] }
   };
   
-  // Helper to compute Part A score for a textarea based on keywords and max marks
   function scorePartA(answerText, config) {
     if (!answerText || answerText.trim() === "") return 0;
     const lowerAns = answerText.toLowerCase();
@@ -263,43 +340,41 @@
     for (let kw of config.keywords) {
       if (lowerAns.includes(kw.toLowerCase())) matched++;
     }
-    let ratio = Math.min(1, matched / Math.max(1, config.keywords.length * 0.6)); // gentle scaling: 60% keywords gives ~full? but we cap to max
+    let ratio = Math.min(1, matched / Math.max(1, config.keywords.length * 0.6));
     let raw = ratio * config.max;
-    // also give at least some points if there's a reasonable attempt but no keywords? extra small bonus
     if (matched === 0 && lowerAns.length > 15) raw = Math.min(config.max, 2);
-    return Math.min(config.max, Math.round(raw * 2) / 2); // half-point precision
+    return Math.min(config.max, Math.round(raw * 2) / 2);
   }
   
-  // PART B answer key (array of correct option texts)
+  // PART B answer key
   const partBAnswers = [
-    "Moral principles guiding behaviour",                     // 1
-    "Large-scale data collection",                           // 2
-    "Central Processing Unit",                               // 3
-    "Crowdfunding",                                          // 4
-    "Personal Development Planning",                         // 5
-    "Sentiment Analysis",                                    // 6
-    "Whistleblowing",                                        // 7
-    "Utilitarianism",                                        // 8
-    "Remote computing resources",                            // 9
-    "Enforced rules",                                        // 10
-    "Citizen",                                               // 11
-    "Fourth",                                                // 12
-    "Google Effect",                                         // 13
-    "Health and repetitive tasks",                           // 14
-    "Law, norms, market, architecture",                      // 15
-    "Improving privacy",                                     // 16
-    "Solar",                                                 // 17
-    "Data protection",                                       // 18
-    "Gap in technology access",                              // 19
-    "Analyse data",                                          // 20
-    "Store user data",                                       // 21
-    "Freedom of Information Act",                            // 22
-    "Original creative work",                                // 23
-    "Ethical and responsible use of technology",             // 24
-    "Data protection enforcement"                            // 25
+    "Moral principles guiding behaviour",
+    "Large-scale data collection",
+    "Central Processing Unit",
+    "Crowdfunding",
+    "Personal Development Planning",
+    "Sentiment Analysis",
+    "Whistleblowing",
+    "Utilitarianism",
+    "Remote computing resources",
+    "Enforced rules",
+    "Citizen",
+    "Fourth",
+    "Google Effect",
+    "Health and repetitive tasks",
+    "Law, norms, market, architecture",
+    "Improving privacy",
+    "Solar",
+    "Data protection",
+    "Gap in technology access",
+    "Analyse data",
+    "Store user data",
+    "Freedom of Information Act",
+    "Original creative work",
+    "Ethical and responsible use of technology",
+    "Data protection enforcement"
   ];
   
-  // MCQ options for each question (same order as displayed)
   const mcqOptionsList = [
     ["Legal requirements only", "Moral principles guiding behaviour", "Government policies", "Technical standards"],
     ["Data encryption", "Limited data storage", "Large-scale data collection", "Offline systems"],
@@ -328,12 +403,24 @@
     ["Internet control", "Data protection enforcement", "Software testing", "Networking"]
   ];
   
-  // Build dynamic DOM elements
-  let partAElements = {}; // store textarea refs
-  let partBElements = [];  // store selected value references
+  const mcqQuestionTexts = [
+    "Ethics refers to:", "Which of the following increases privacy risks?", "What does CPU stand for?",
+    "Raising funds from a large number of people online is called:", "Reflecting on your skills and planning improvement is known as:",
+    "Analysing opinions in text data is called:", "Reporting wrongdoing within an organisation is called:",
+    "Which theory focuses on the greatest good for the greatest number?", "Cloud computing primarily provides:",
+    "Laws are:", "A person with rights and responsibilities in a society is a:",
+    "Which revolution involves AI and automation?", "Relying on search engines instead of memory is called:",
+    "RSI is related to:", "According to Lessig, behaviour online is influenced by:",
+    "VPNs help with:", "Renewable energy includes:", "GDPR relates to:",
+    "Digital divide refers to:", "Web scraping is used to:", "Cookies are used to:",
+    "Which law allows access to public information?", "Copyright protects:", "Digital citizenship includes:",
+    "ICO is responsible for:"
+  ];
+  
+  let partAElements = {};
+  let partBElements = [];
   
   function buildExam() {
-    // Part A HTML structure
     const partACont = document.getElementById('partA-container');
     partACont.innerHTML = '';
     
@@ -352,127 +439,130 @@
     partACont.appendChild(createPartACard(3, "b) Explain the purpose of data protection laws (e.g., GDPR). Provide three reasons why organisations must comply. [9 marks]", "q3b"));
     partACont.appendChild(createPartACard(3, "c) Explain Utilitarianism as an ethical theory and discuss how it can guide decision-making in computing. [9 marks]", "q3c"));
     
-    // Part B build
+    // Part B - Vertical layout, mobile friendly
     const partBContainer = document.getElementById('partB-container');
     partBContainer.innerHTML = '';
     partBElements = [];
+    
     for (let i = 0; i < mcqOptionsList.length; i++) {
-      const qNum = i+1;
+      const qNum = i + 1;
       const options = mcqOptionsList[i];
+      const questionText = mcqQuestionTexts[i];
+      
       const div = document.createElement('div');
       div.className = 'question-block';
-      div.innerHTML = `<div class="question-text">🔹 ${qNum}. ${getMcqQuestionText(i)} <span class="marks">(1 mark)</span></div>`;
+      
+      const qTitle = document.createElement('div');
+      qTitle.className = 'question-text';
+      qTitle.innerHTML = `🔹 ${qNum}. ${questionText} <span class="marks">(1 mark)</span>`;
+      div.appendChild(qTitle);
+      
       const optionsDiv = document.createElement('div');
       optionsDiv.className = 'mcq-group';
       const nameAttr = `mcq_${qNum}`;
-      let selectedVal = "";
+      
+      // Create vertical options: each option on its own line
       options.forEach((opt, idx) => {
         const radioId = `q${qNum}_opt${idx}`;
         const label = document.createElement('label');
         label.className = 'mcq-option';
+        label.setAttribute('for', radioId);
+        
         const radio = document.createElement('input');
         radio.type = 'radio';
         radio.name = nameAttr;
         radio.value = opt;
-        radio.addEventListener('change', () => { selectedVal = opt; });
+        radio.id = radioId;
+        
         const span = document.createElement('span');
         span.innerText = opt;
+        
         label.appendChild(radio);
         label.appendChild(span);
         optionsDiv.appendChild(label);
       });
+      
       div.appendChild(optionsDiv);
       const feedbackDiv = document.createElement('div');
       feedbackDiv.className = 'answer-feedback';
       feedbackDiv.id = `mcq_fb_${qNum}`;
       feedbackDiv.style.display = 'none';
       div.appendChild(feedbackDiv);
+      
       partBContainer.appendChild(div);
-      partBElements.push({ container: div, getName: () => {
-        const selectedRadio = document.querySelector(`input[name="${nameAttr}"]:checked`);
-        return selectedRadio ? selectedRadio.value : null;
-      }, feedbackDiv, qIndex: i, correctAnswer: partBAnswers[i] });
+      
+      partBElements.push({
+        container: div,
+        getName: () => {
+          const selected = document.querySelector(`input[name="${nameAttr}"]:checked`);
+          return selected ? selected.value : null;
+        },
+        feedbackDiv,
+        qIndex: i,
+        correctAnswer: partBAnswers[i],
+        radioName: nameAttr
+      });
     }
-  }
-  
-  function getMcqQuestionText(index) {
-    const texts = [
-      "Ethics refers to:", "Which of the following increases privacy risks?", "What does CPU stand for?",
-      "Raising funds from a large number of people online is called:", "Reflecting on your skills and planning improvement is known as:",
-      "Analysing opinions in text data is called:", "Reporting wrongdoing within an organisation is called:",
-      "Which theory focuses on the greatest good for the greatest number?", "Cloud computing primarily provides:",
-      "Laws are:", "A person with rights and responsibilities in a society is a:",
-      "Which revolution involves AI and automation?", "Relying on search engines instead of memory is called:",
-      "RSI is related to:", "According to Lessig, behaviour online is influenced by:",
-      "VPNs help with:", "Renewable energy includes:", "GDPR relates to:",
-      "Digital divide refers to:", "Web scraping is used to:", "Cookies are used to:",
-      "Which law allows access to public information?", "Copyright protects:", "Digital citizenship includes:",
-      "ICO is responsible for:"
-    ];
-    return texts[index];
   }
   
   function createPartACard(questionNum, subText, keyId) {
     const div = document.createElement('div');
     div.className = 'question-block';
     div.innerHTML = `<div class="question-text">📌 Q${questionNum} ${subText}</div>
-                     <textarea rows="3" placeholder="Write your answer here ..." id="textarea_${keyId}"></textarea>
+                     <textarea rows="4" placeholder="Write your answer here ..." id="textarea_${keyId}"></textarea>
                      <div class="answer-feedback" id="fb_${keyId}" style="display:none;"></div>`;
     const textarea = div.querySelector('textarea');
     partAElements[keyId] = { textarea, feedbackDiv: div.querySelector(`#fb_${keyId}`), config: partAMarking[keyId], key: keyId };
     return div;
   }
   
-  // compute total marks and display detailed feedback + correct answers
   function evaluateAndDisplay() {
     let totalPartAMarks = 0;
-    const partAResults = [];
-    // evaluate each part A
+    // Evaluate Part A
     for (let [key, obj] of Object.entries(partAElements)) {
       const userAnswer = obj.textarea.value;
       const score = scorePartA(userAnswer, obj.config);
       totalPartAMarks += score;
       const maxMark = obj.config.max;
       let feedbackHtml = `<div><span class="correct-answer">✓ Your score: ${score}/${maxMark}</span><br>`;
-      feedbackHtml += `<span style="font-size:0.85rem;"><strong>Model concepts included:</strong> ${obj.config.keywords.slice(0,5).join(", ")}${obj.config.keywords.length>5 ? "…" : ""}.<br>`;
-      feedbackHtml += `📖 For full marks, ensure key terms like these appear. </span></div>`;
+      feedbackHtml += `<span style="font-size:0.85rem;"><strong>Key concepts:</strong> ${obj.config.keywords.slice(0,5).join(", ")}${obj.config.keywords.length > 5 ? "…" : ""}.<br>`;
+      feedbackHtml += `📖 For full marks, include relevant key terms.</span></div>`;
       obj.feedbackDiv.innerHTML = feedbackHtml;
       obj.feedbackDiv.style.display = 'block';
     }
     
-    // Evaluate Part B
+    // Evaluate Part B (MCQs)
     let totalPartBMarks = 0;
     for (let i = 0; i < partBElements.length; i++) {
       const item = partBElements[i];
       const selected = item.getName();
       const correct = item.correctAnswer;
-      let isCorrect = (selected === correct);
+      const isCorrect = (selected === correct);
       if (isCorrect) totalPartBMarks += 1;
       const fbDiv = item.feedbackDiv;
-      let feedbackMsg = isCorrect ? `✔️ Correct! The answer is: ${correct}. (+1 mark)` : `❌ Incorrect. Your answer: ${selected || "none selected"}. Correct answer: ${correct}. (0 marks)`;
+      let feedbackMsg = isCorrect 
+        ? `✅ Correct! Answer: ${correct}. (+1 mark)` 
+        : `❌ Incorrect. ${selected ? `Your answer: "${selected}"` : "No option selected"}. Correct answer: "${correct}". (0 marks)`;
       fbDiv.innerHTML = `<div class="${isCorrect ? 'correct-answer' : 'wrong-feedback'}">${feedbackMsg}</div>`;
       fbDiv.style.display = 'block';
-      // optional highlight if no selection
-      if (!selected) fbDiv.innerHTML += `<span style="color:#b5651e;">⚠️ No option selected.</span>`;
     }
     
     const totalMarks = totalPartAMarks + totalPartBMarks;
     const scorePanel = document.getElementById('scorePanel');
     scorePanel.style.display = 'block';
-    scorePanel.innerHTML = ` TOTAL SCORE: ${totalMarks} / 100  &nbsp;&nbsp;|  Part A: ${totalPartAMarks}/75  |  Part B: ${totalPartBMarks}/25<br>
-                            <span style="font-size:1rem;"> You can review answers above. Click "Reset Exam" to clear and try again.</span>`;
-    // scroll to score
+    scorePanel.innerHTML = `🎯 TOTAL SCORE: ${totalMarks} / 100  <span style="font-size:1rem;">| Part A: ${totalPartAMarks}/75 | Part B: ${totalPartBMarks}/25</span><br>
+                            <span style="font-size:0.9rem;">✔️ Review feedback above. Click "Reset Exam" to try again.</span>`;
     scorePanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
   
   function resetExam() {
-    // clear all textareas
+    // Clear all textareas
     for (let [key, obj] of Object.entries(partAElements)) {
       obj.textarea.value = '';
       obj.feedbackDiv.style.display = 'none';
       obj.feedbackDiv.innerHTML = '';
     }
-    // clear all radio buttons
+    // Clear all radio buttons in Part B
     for (let i = 0; i < partBElements.length; i++) {
       const radios = partBElements[i].container.querySelectorAll('input[type="radio"]');
       radios.forEach(radio => radio.checked = false);
@@ -484,7 +574,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   
-  // initialize after DOM
   document.addEventListener('DOMContentLoaded', () => {
     buildExam();
     const submitBtn = document.getElementById('submitBtn');
